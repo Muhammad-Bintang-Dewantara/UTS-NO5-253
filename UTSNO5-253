@@ -1,0 +1,21 @@
+->Pertama yang dilakukan adalah membuat project baru dan menyiapkan database. 
+
+->Kemudian membuat koneksi ke database di file cofig.php . Code program tersebut berada di jawaban UTS no 4. Jadi fungsi mengkoneksikan database tersebut adalah agar mempermudah dalam pemanggilan dan penyimpanan data dari database. 
+
+->Selanjutnya adalah membuat halaman utama. Halaman utamanya saya buat simpel. 
+
+->Selanjutnya langsung dalam pembuatan SIGN UP atau Registrasi. Pada file ini, pembuatannya :
+1.Input data dari form;
+2.Filter data yang diinputkan;
+3.Simpan ke database;
+4.Kalau berhasil, alihkan ke halaman login.
+Pertama impor config.php dengan fungsi require_once(). Setelah itu, buat kode untuk menyimpan data ke database. Selanjutnya melakukan filter dan enkripsi password terhadap data yang diinputkan. Alasan password tidak di-filter adalah Karena agar user dapat menggunakan simbol untuk membuat password. Setelah data di-filter, selanjutnya buat query dengan objek $db. :name, :username, :email, :password adalah placeholder. Tujuannya agar terhindar dari serangan SQL Injection. Setelah itu, bind parameter atau mengisi placeholder dengan nilai yang kita dapatkan dari hasil filter. Selanjutnya, eksekusi query-nya. Eksekusi query akan menghasilkan nilai true jika berhasil. Lalu yang terakhir adalah kode untuk form registernya.
+
+->Membuat Fitur Login di PHP
+Pertama mengimpor file config.php. Selanjutnya melakukan query. Pada query, gunakan logika OR agar user bisa login dengan email dan username. Selanjutnya bind parameter dan ekekusi querynya. Setelah query dieksekusi, ambil hasilnya dengan fungsi fetch(). Selanjutnya, lakukan verifikasi password yang diinputkan oleh user dengan password yang ada di database. Fungsi password_verify() akan menghasilkan nilai true kalau password yang diinputkan sama dengan yang di database. Langkah terakhir adalah membuat session dan mengalihkannya ke halaman timeline.php.
+
+->Membuat Halaman Timeline
+Sebelum membuat kode untuk halaman timeline.php, buatlah auth.php. File auth.php berfungsi untuk mengecek session, apakah user sudah login atau belum. Buka file auth.php. Panggil fungsi session_start() terlebih dahulu. Baru buat halaman timeline.php. 
+
+->Membuat Logout di PHP
+Pertama, harus memanggil fungsi session_start(), karena akan menggunakan session. Setelah itu, hancurkan atau hapus variabel $_SESSION['user'] dengan fungsi session_unset("user"). Penghancuran session selesai. Selanjutnya alihkan ke halaman utama.
